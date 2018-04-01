@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     
+    <bean id="triangle" class="spring.bean.factory.injectingobject.Triangle">
+    	  <property name="A" ref="zeroPint"></property>
+    	  <property name="B" ref="onePint">
+    	  	<!--  <idref bean="onePint" /> -->
+    	  </property>
+    	  <property name="C" >
+    	  <!-- Inner Beans id not required -->
+    	  	<bean class="spring.bean.factory.injectingobject.Point">
+    	  		<property name="x" value="20"></property>    
+    			<property name="y" value="0"></property>
+    	  	</bean>
+    	  </property>
+    </bean>
+    
+    <bean id="zeroPint" class="spring.bean.factory.injectingobject.Point">
+    	<property name="x" value="0"></property>    
+    	<property name="y" value="0"></property>
+    </bean>
+    
+    <bean id="onePint" class="spring.bean.factory.injectingobject.Point">
+    	<property name="x" value="0"></property>    
+    	<property name="y" value="-20"></property>
+    </bean>
+    
+    <bean id="twoPint" class="spring.bean.factory.injectingobject.Point">
+    	<property name="x" value="20"></property>    
+    	<property name="y" value="0"></property>
+    </bean>
+    
+    <alias name="triangle" alias="t1"/>
+</beans>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    
+    <bean id="triangle" class="spring.bean.factory.component.Triangle">
+    	<property name="pointA" ref="pointA" />
+    	<property name="pointB" ref="pointB" />
+    	<property name="pointC" ref="pointC" />
+    </bean> 
+   	
+    <bean id="pointA" class="spring.bean.factory.component.Point">
+    	<property name="x" value="0" />    
+    	<property name="y" value="0" />
+    </bean>
+    
+    <bean id="pointB" class="spring.bean.factory.component.Point">
+    	<property name="x" value="0" />    
+    	<property name="y" value="-20" />
+    </bean>
+    
+    <bean id="pointC" class="spring.bean.factory.component.Point">
+    	<property name="x" value="20" />    
+    	<property name="y" value="0" />
+    </bean>
+    
+    <bean id="centre" class="spring.bean.factory.component.Point">
+    	<property name="x" value="20" />    
+    	<property name="y" value="0" />
+    </bean>
+    
+   <!--  <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+     -->
+    <!--  
+    	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+    -->
+    
+    <context:annotation-config />
+    <context:component-scan base-package="spring.bean.factory.component"></context:component-scan>
+    
+</beans>
